@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+from torch.utils.data import Dataset, DataLoader
 import numpy as np
 np.bool = np.bool_  # numpy bool 호환성 문제 해결
 import gluonnlp as nlp
