@@ -3,22 +3,18 @@
 
 ## 1. Install Git
 
-먼저, Git을 설치해야 합니다. 운영체제에 따라 설치 방법이 다릅니다.
+먼저, Git을 설치해야 합니다. 운영체제에 따라 설치 방법이 다릅니다.  
 
-Windows
-Git 공식 사이트로 이동합니다.
-"Download" 버튼을 클릭하여 최신 버전의 Git을 다운로드합니다.
-다운로드한 설치 파일을 실행하고 설치 마법사의 지시에 따라 설치를 완료합니다.
+Windows  
+Git 공식 사이트로 이동합니다. "Download" 버튼을 클릭하여 최신 버전의 Git을 다운로드합니다. 다운로드한 설치 파일을 실행하고 설치 마법사의 지시에 따라 설치를 완료합니다.  
 
-MacOS
-터미널을 엽니다.
-Homebrew가 설치되어 있다면 brew install git 명령어를 입력하여 설치합니다. Homebrew가 없다면 Homebrew 공식 사이트를 참조하여 Homebrew를 먼저 설치한 후 Git을 설치합니다.
+MacOS  
+터미널을 엽니다. Homebrew가 설치되어 있다면 `brew install git` 명령어를 입력하여 설치합니다. Homebrew가 없다면 [Homebrew 공식 사이트](https://brew.sh/)를 참조하여 Homebrew를 먼저 설치한 후 Git을 설치합니다.  
 
-Linux
-터미널을 엽니다.
-배포판에 따라 다음 명령어 중 하나를 입력하여 Git을 설치합니다:
-Ubuntu: sudo apt-get install git
-Fedora: sudo dnf install git
+Linux  
+터미널을 엽니다. 배포판에 따라 다음 명령어 중 하나를 입력하여 Git을 설치합니다:  
+Ubuntu: `sudo apt-get install git`  
+Fedora: `sudo dnf install git`
 
 ## 2. Configure Git
 
