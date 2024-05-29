@@ -1,109 +1,59 @@
-# KoBERT 감정 분석
+# KoBERT & KoGPT2 기반 챗봇 서비스
 
-이 저장소에는 KoBERT 모델을 사용하여 감정 분석을 수행하는 코드가 포함되어 있습니다.
+## 프로젝트 개요
+이 프로젝트는 KoBERT 모델과 KoGPT2-chatbot 모델을 결합하여 웹페이지를 통한 챗봇 서비스를 제공하는 것을 목표로 합니다.
 
-## 프로젝트 구조
+## 프로젝트 진행 과정
+1. **KoBERT 모델 초기 학습**
+    - 데이터셋: NSMC (Naver Sentiment Movie Corpus)
+    - 목표: KoBERT 모델의 기본적인 이해능력을 높이기 위해 감성 분석을 수행
 
-project/
-├── data/
-│ ├── ratings_train.txt
-│ ├── ratings_test.txt
-│ ├── new_train_dataset.tsv
-│ └── new_test_dataset.tsv
-├── models/
-│ ├── kobert_model999.pth
-│ └── kobert_model_retrained.pth
-├── scripts/
-│ ├── train_model.py
-│ ├── additional_training.py
-│ ├── predict.py
-│ └── utils.py
-└── README.md
+2. **모델 저장 및 재학습**
+    - 초기 학습이 끝난 KoBERT 모델을 저장한 후, 다양한 데이터셋을 이용하여 추가 학습 진행
 
+3. **데이터 분류**
+    - 학습된 KoBERT 모델을 이용해 분류되지 않은 질문/답변 데이터셋을 분류
+    - 분류된 데이터셋은 KoGPT2-chatbot 모델의 학습 데이터로 사용
 
+4. **KoGPT2-chatbot 학습**
+    - KoBERT 모델로 분류된 데이터를 이용해 KoGPT2-chatbot 모델을 학습
 
-## 설정
+5. **모델 결합 및 웹페이지 개발**
+    - 학습된 KoBERT 모델과 KoGPT2-chatbot 모델을 결합하여 챗봇 서비스를 개발
+    - 웹페이지 상에서 챗봇 서비스 제공
 
-### 필요 사항
-- Python 3.6 이상
-- Google Colab (GPU 지원을 위해 권장됨)
+## 사용 기술
+- **KoBERT:** 감성 분석 및 질문 분류
+- **KoGPT2-chatbot:** 답변 생성 및 대화 처리
+- **NSMC 데이터셋:** KoBERT 초기 학습용
+- **기타 다양한 데이터셋:** KoBERT 재학습 및 KoGPT2-chatbot 학습용
 
-### 필요한 라이브러리 설치
-다음 명령어를 실행하여 필요한 라이브러리를 설치합니다:
-```bash
-pip install mxnet gluonnlp pandas tqdm sentencepiece transformers torch 'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf'
+## 프로젝트 나아갈 방향
+- **고도화된 모델 학습:** 더 많은 데이터셋과 다양한 학습 방법을 통해 모델의 성능 향상
+- **실시간 서비스 제공:** 웹페이지를 통한 실시간 챗봇 서비스 안정화
+- **다양한 응용 분야 탐색:** 고객 서비스, 교육, 상담 등 다양한 분야에 챗봇 적용
 
+## 프로젝트 팀 역할 및 책임
+- **박경대:** KoBERT 모델 학습 및 파인튜닝/웹페이지 개발 및 배포 담당
+- **한우주** KoGPT2-chatbot 학습 및 모델 통합 담당
+- **오경진:** KoBERT 모델 학습 및 데이터 전처리/웹페이지 개발 및 배포 담당
+- **김명호:** 프로젝트 관리 및 문서화 담당
+- **박경원:** KoBERT 모델 학습 및 데이터 전처리/트랜스포머 구축
 
-물론입니다. README.md 파일의 내용을 한글로 작성하여 제공하겠습니다.
+## 사용 방법
+1. **KoBERT 모델 학습**
+    - NSMC 데이터셋을 이용하여 KoBERT 모델을 학습
+    - 학습된 모델을 저장
 
-README.md 내용 (한글)
-markdown
-코드 복사
-# KoBERT 감정 분석
+2. **KoGPT2-chatbot 학습**
+    - 분류된 질문/답변 데이터를 이용하여 KoGPT2 모델을 학습
 
-이 저장소에는 KoBERT 모델을 사용하여 감정 분석을 수행하는 코드가 포함되어 있습니다.
+3. **웹페이지 개발 및 배포**
+    - Flask를 이용하여 웹페이지 개발
+    - 학습된 KoBERT와 KoGPT2 모델을 결합하여 챗봇 서비스 제공
 
-## 프로젝트 구조
-project/
-├── data/
-│ ├── ratings_train.txt
-│ ├── ratings_test.txt
-│ ├── new_train_dataset.tsv
-│ └── new_test_dataset.tsv
-├── models/
-│ ├── kobert_model999.pth
-│ └── kobert_model_retrained.pth
-├── scripts/
-│ ├── train_model.py
-│ ├── additional_training.py
-│ ├── predict.py
-│ └── utils.py
-└── README.md
+## 기여 방법
+- 프로젝트에 기여하고 싶다면 팀원들과 상의하여 진행해주세요.
 
-shell
-코드 복사
-
-## 설정
-
-### 필요 사항
-- Python 3.6 이상
-- Google Colab (GPU 지원을 위해 권장됨)
-
-### 필요한 라이브러리 설치
-다음 명령어를 실행하여 필요한 라이브러리를 설치합니다:
-```bash
-pip install mxnet gluonnlp pandas tqdm sentencepiece transformers torch 'git+https://github.com/SKTBrain/KoBERT.git#egg=kobert_tokenizer&subdirectory=kobert_hf'
-
-
-스크립트
-1. 모델 학습
-제공된 데이터셋을 사용하여 모델을 학습시키려면 train_model.py 스크립트를 실행합니다
-
-
-python scripts/train_model.py
-
-
-2. 추가 학습
-새로운 데이터로 추가 학습을 수행하려면 additional_training.py 스크립트를 실행합니다
-
-python scripts/additional_training.py
-
-
-3. 예측
-새로운 데이터에 대해 감정을 예측하려면 predict.py 스크립트를 실행합니다
-
-python scripts/predict.py
-
-유틸리티
-utils.py 스크립트에는 데이터 처리, 모델 정의 및 학습을 위한 도우미 함수와 클래스가 포함되어 있습니다.
-
-
-데이터
-ratings_train.txt 및 ratings_test.txt 데이터셋을 다운로드하여 data/ 디렉토리에 배치합니다.
-새로운 학습 및 테스트 데이터는 new_train_dataset.tsv 및 new_test_dataset.tsv 파일에 제공됩니다.
-모델
-사전 학습된 모델과 재학습된 모델은 models/ 디렉토리에 저장됩니다.
-결과
-학습 및 평가 결과에는 정확도, 손실 플롯, 혼동 행렬 및 분류 보고서가 포함됩니다. 스크립트 실행 중에 표시됩니다.
-
-
+## 라이센스
+- 이 프로젝트는 팀 내부적으로 사용되므로, 별도의 라이센스는 적용되지 않습니다.
